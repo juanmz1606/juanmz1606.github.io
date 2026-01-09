@@ -1,4 +1,5 @@
 import "../styles/projects.css";
+import { Link } from "react-router-dom";
 
 const Projects: React.FC = () => {
   return (
@@ -21,17 +22,28 @@ const Projects: React.FC = () => {
         </div>
 
         <div className="project-card">
-          <h3>Sistema de Gestión de Restaurante</h3>
+          <h3>Restaurant Management System</h3>
           <p>
-            Aplicación web para la gestión de pedidos, mesas y productos,
-            orientada a mejorar el control y la eficiencia operativa.
+            Sistema de gestión para restaurantes con control de stock,
+            recetas, empleados y órdenes.
           </p>
-          <span>React · FastAPI · MySQL</span>
+          <span>NestJS · MongoDB · React · Docker</span>
 
           <div className="project-links">
-            <a href="#" className="btn primary">GitHub</a>
+            <a
+              href="https://github.com/juanmz1606/restaurant-management-system"
+              target="_blank"
+              className="btn primary"
+            >
+              GitHub
+            </a>
+
+            <Link to="/projects/restaurant-management" className="btn secondary">
+              Ver detalles
+            </Link>
           </div>
         </div>
+
 
         <div className="project-card">
           <h3>Proyecto Full Stack Académico</h3>

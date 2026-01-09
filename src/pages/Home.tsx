@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "../styles/home.css";
 
 const Home: React.FC = () => {
@@ -21,6 +22,7 @@ const Home: React.FC = () => {
           especial interés en soluciones escalables y de calidad.
         </p>
 
+        {/* Botones secundarios */}
         <div className="home-buttons">
           <a
             href="https://www.linkedin.com/in/juanmeza-sistemas"
@@ -50,6 +52,13 @@ const Home: React.FC = () => {
             juanestebanmz79@gmail.com
           </a>
         </p>
+
+        {/* BOTÓN PRINCIPAL */}
+        <div className="home-cta">
+          <Link to="/projects" className="btn highlight">
+            Ver proyectos
+          </Link>
+        </div>
       </div>
     </section>
   );
