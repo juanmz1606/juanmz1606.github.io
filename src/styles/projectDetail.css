@@ -76,3 +76,71 @@
 .actions {
   margin-top: 2.5rem;
 }
+
+/* Badge académico */
+.academic-badge {
+  display: inline-block;
+  background: #e0e7ff;
+  color: #1e3a8a;
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+}
+
+/* Repositorios */
+.repo-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.repo-item {
+  margin-bottom: 0.7rem;
+}
+
+.repo-item a {
+  display: block;
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+  background: #f8fafc;
+  transition: all 0.2s ease;
+}
+
+.repo-item a:hover {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  transform: translateY(-1px);
+}
+
+/* Documentación */
+.documentation-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.doc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.doc-link:hover {
+  background: #1e293b;
+  transform: translateY(-1px);
+}

@@ -18,9 +18,24 @@ const ProjectDetail: React.FC = () => {
         <div className="project-detail-card">
           <h1>{project.title}</h1>
 
+          {project.academic && (
+            <span className="academic-badge">
+              Proyecto académico
+            </span>
+          )}
+
           <p className="description">
             {project.description.trim()}
           </p>
+
+          {project.architecture && (
+            <>
+              <h2>Arquitectura</h2>
+              <p className="architecture">
+                {project.architecture}
+              </p>
+            </>
+          )}
 
           <h2>Funcionalidades principales</h2>
           <ul className="features-list">
@@ -38,16 +53,53 @@ const ProjectDetail: React.FC = () => {
             ))}
           </div>
 
-          <div className="actions">
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noreferrer"
-              className="btn primary"
-            >
-              Ver repositorio en GitHub
-            </a>
-          </div>
+          {project.repositories && (
+            <>
+              <h2>Repositorios</h2>
+              <ul className="repo-list">
+                {project.repositories.map(repo => (
+                  <li key={repo.url} className="repo-item">
+                    <a
+                      href={repo.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {repo.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+
+          {project.documentation && (
+            <>
+              <h2>Documentación</h2>
+              <div className="documentation-links">
+                {project.documentation.technicalManual && (
+                  <a
+                    href={project.documentation.technicalManual}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="doc-link"
+                  >
+                    📘 Manual técnico
+                  </a>
+                )}
+
+                {project.documentation.demoVideo && (
+                  <a
+                    href={project.documentation.demoVideo}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="doc-link"
+                  >
+                    🎥 Video demostrativo
+                  </a>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
     </section>
