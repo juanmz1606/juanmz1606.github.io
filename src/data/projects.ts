@@ -2,6 +2,7 @@ export const projects = [
   {
     slug: "restaurant-management",
     title: "Restaurant Management System",
+    role: "Desarrollador Full Stack",
     shortDescription:
       "Sistema de gestión para restaurantes con control de stock, recetas, empleados y órdenes.",
     description: `
@@ -18,6 +19,12 @@ automático de stock al crear órdenes.
       "Validación de stock antes de guardar órdenes",
       "Uso de transacciones en MongoDB",
     ],
+    learnings: [
+      "Diseño de lógica de negocio real",
+      "Relaciones entre colecciones en MongoDB",
+      "Uso de Mongoose con NestJS",
+      "Manejo de entornos con Docker",
+    ],
     stack: [
       "NestJS",
       "MongoDB",
@@ -27,6 +34,6 @@ automático de stock al crear órdenes.
       "Tailwind CSS",
       "Docker",
     ],
-    github: "https://github.com/juanmz1606/restaurant-management-system",
+    github: "https://github.com/juanmz1606/restaurant_project_docker.git",
   },
 ];
