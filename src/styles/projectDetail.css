@@ -1,146 +1,191 @@
 .project-detail-page {
-  background: #f5f7fb;
-  padding: 2.5rem 1.5rem 5rem;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100dvh;
+  width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  overflow: hidden;
 }
 
-.project-detail {
-  max-width: 900px;
-  margin: 0 auto;
+.detail-container {
+  max-width: 1100px;
+  width: 100%;
+  height: 85vh;
+  max-height: 850px;
+  display: flex;
+  flex-direction: column;
 }
 
+/* Botón Volver */
 .back-link {
-  display: inline-block;
-  margin-bottom: 1.5rem;
-  color: #2563eb;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
   text-decoration: none;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  transition: opacity 0.2s;
 }
 
 .back-link:hover {
-  text-decoration: underline;
+  opacity: 0.8;
 }
 
-.project-detail-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 2.2rem;
+/* Card Principal */
+.detail-layout {
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  padding: 3rem;
+  height: 100%;
 }
 
-.project-detail-card h1 {
-  font-size: 1.8rem;
-  color: #0f172a;
+/* Header */
+.detail-header {
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.academic-badge {
+  background: #e0e7ff;
+  color: #4f46e5;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.detail-header h1 {
+  font-size: 2.2rem;
+  color: #1e293b;
+  margin: 1rem 0 0.5rem;
+}
+
+.role-tag {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* Grid de contenido */
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+}
+
+.detail-section {
+  margin-bottom: 2.5rem;
+}
+
+.detail-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.3rem;
+  color: #1e293b;
   margin-bottom: 1rem;
 }
 
-.description {
+.description-text, .architecture-text {
   color: #475569;
   line-height: 1.7;
-  margin-bottom: 2rem;
+  font-size: 1rem;
   white-space: pre-line;
 }
 
-.project-detail-card h2 {
-  font-size: 1.1rem;
-  color: #0f172a;
-  margin-bottom: 0.8rem;
-  margin-top: 2rem;
-}
-
-.features-list {
-  padding-left: 1.2rem;
-  color: #475569;
-}
-
-.features-list li {
-  margin-bottom: 0.5rem;
-  line-height: 1.6;
-}
-
-.tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-top: 0.6rem;
-}
-
-.tech {
-  background: #e2e8f0;
-  color: #0f172a;
-  padding: 0.35rem 0.8rem;
-  border-radius: 999px;
-  font-size: 0.85rem;
-}
-
-.actions {
-  margin-top: 2.5rem;
-}
-
-/* Badge académico */
-.academic-badge {
-  display: inline-block;
-  background: #e0e7ff;
-  color: #1e3a8a;
-  font-size: 0.8rem;
-  font-weight: 500;
-  padding: 0.25rem 0.7rem;
-  border-radius: 999px;
-  margin-bottom: 1.2rem;
-}
-
-/* Repositorios */
-.repo-list {
+/* Features List */
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
   list-style: none;
   padding: 0;
-  margin-top: 1rem;
 }
 
-.repo-item {
-  margin-bottom: 0.7rem;
-}
-
-.repo-item a {
-  display: block;
-  padding: 0.75rem 1rem;
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  color: #2563eb;
-  font-weight: 500;
-  text-decoration: none;
+.features-grid li {
   background: #f8fafc;
-  transition: all 0.2s ease;
+  padding: 0.8rem 1rem;
+  border-radius: 10px;
+  color: #334155;
+  border-left: 4px solid #667eea;
+  font-size: 0.95rem;
 }
 
-.repo-item a:hover {
-  background: #eef2ff;
-  border-color: #c7d2fe;
-  transform: translateY(-1px);
+/* Sidebar */
+.detail-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-/* Documentación */
-.documentation-links {
+.sidebar-block h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.tech-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
 }
 
-.doc-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.7rem 1.1rem;
-  border-radius: 999px;
-  background: #0f172a;
-  color: #ffffff;
-  font-size: 0.9rem;
+.tech-tag-pill {
+  background: #f1f5f9;
+  color: #475569;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
   font-weight: 500;
-  text-decoration: none;
-  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.doc-link:hover {
+/* Botones de Recursos */
+.resource-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.res-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1rem;
   background: #1e293b;
-  transform: translateY(-1px);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.res-link:hover {
+  background: #0f172a;
+  transform: translateX(5px);
+}
+
+.res-link.doc { background: #2563eb; }
+.res-link.video { background: #dc2626; }
+
+/* Scrollbar Personalizado */
+.detail-layout::-webkit-scrollbar { width: 8px; }
+.detail-layout::-webkit-scrollbar-track { background: #f1f5f9; }
+.detail-layout::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .detail-grid { grid-template-columns: 1fr; }
+  .detail-layout { padding: 1.5rem; }
+  .detail-container { height: 95vh; }
+  .project-detail-page { overflow: auto; height: auto; padding: 1rem; }
 }

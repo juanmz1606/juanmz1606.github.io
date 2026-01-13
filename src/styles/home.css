@@ -1,106 +1,408 @@
-.home {
-  padding: 2rem 1.5rem 1.5rem;
-  background: #f5f7fb;
+/* Reset y variables */
+.home-compact {
+  /* Usamos dvh (dynamic viewport height) para mejor soporte en móviles */
+  height: 100vh;
+  height: 100dvh; 
+  width: 100vw;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   display: flex;
+  align-items: center;
   justify-content: center;
+  padding: 1.5rem; /* Reducido un poco para dar aire */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  overflow: hidden; /* Evita el scroll global de la página */
 }
 
-.home-container {
-  max-width: 900px;
-  text-align: left;
+.home-layout {
+  max-width: 1200px;
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  display: grid;
+  grid-template-columns: 380px 1fr;
+
+  /* Altura fija relativa a la pantalla para que siempre esté centrado */
+  height: 85vh; 
+  max-height: 800px; /* Limite para que no se vea gigante en monitores 4K */
+  overflow: hidden; /* Importante para que el sidebar y main no se salgan */
 }
 
-.home h1 {
-  font-size: 3.2rem;
-  color: #0f172a;
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-}
-
-.home h2 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #2563eb;
-  margin-bottom: 1.4rem;
-}
-
-.home p {
-  max-width: 680px;
-  font-size: 1.05rem;
-  line-height: 1.75;
-  color: #475569;
-  margin-bottom: 2.2rem;
-}
-
-/* BOTONES */
-.home-buttons {
+/* Sidebar - Info Personal */
+.home-sidebar {
+  background: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+  color: white;
+  padding: 2.5rem 2rem;
   display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
 }
 
-.btn {
-  padding: 0.55rem 1.2rem;
+.sidebar-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow-y: auto; /* Por si la bio es muy larga en pantallas pequeñas */
+}
+
+.profile-info h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.profile-info h2 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.bio {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  margin-bottom: 1rem;
+}
+
+.bio-secondary {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+}
+
+/* Botones sociales */
+.contact-section {
+  margin-top: auto;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-btn {
+  flex: 1;
+  padding: 0.75rem;
+  color: white;
+  text-decoration: none;
   border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   font-size: 0.9rem;
   font-weight: 500;
-  text-decoration: none;
-  transition: all 0.25s ease;
-  display: inline-flex;
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.social-btn.linkedin {
+  background: #0a66c2;
+}
+
+.social-btn.github {
+  background: #24292e;
+}
+
+.social-btn:hover {
+  transform: translateY(-2px);
+}
+
+.email-link {
+  display: flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.5rem;
+  color: #94a3b8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
 }
 
-/* Botón principal */
-.btn.primary {
-  background: #2563eb;
-  color: #ffffff;
+.email-link:hover {
+  color: #e2e8f0;
 }
 
-.btn.primary:hover {
-  background: #1e40af;
+/* Sección de Proyectos */
+.projects-section {
+  padding: 2.5rem;
+  /* El scroll ahora es EXCLUSIVO de esta columna */
+  overflow-y: auto; 
+  height: 100%;
+  background-color: #ffffff;
 }
 
-/* Botón secundario */
-.btn.secondary {
-  background: #ffffff;
-  color: #0f172a;
-  border: 1px solid #e2e8f0;
+/* Estilización del Scrollbar para que se vea moderno */
+.projects-section::-webkit-scrollbar {
+  width: 8px;
 }
 
-.btn.secondary:hover {
+.projects-section::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
 
-/* Botón outline */
-.btn.outline {
-  background: transparent;
-  color: #2563eb;
-  border: 1px solid #2563eb;
-}
-
-.btn.outline:hover {
-  background: #eff6ff;
-}
-
-.home-cta {
-  margin: 2.5rem 0 2rem;
-}
-
-.btn.highlight {
-  display: inline-block;
-  padding: 0.9rem 2.2rem;
-  font-size: 1.05rem;
-  font-weight: 600;
+.projects-section::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
   border-radius: 10px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: #ffffff;
-  text-decoration: none;
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.35);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.btn.highlight:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(37, 99, 235, 0.45);
+.projects-section::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Ajustes adicionales de espaciado */
+.projects-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.5rem;
+  top: 0;
+  background: white;
+  z-index: 5;
+  padding-bottom: 0.5rem;
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Cards de Proyectos */
+.project-card {
+  padding: 1.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.project-card:hover {
+  border-color: #667eea;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+  transform: translateY(-2px);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.academic-badge {
+  padding: 0.25rem 0.75rem;
+  background: #dbeafe;
+  color: #1e40af;
+  font-size: 0.75rem;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+.project-description {
+  font-size: 0.9rem;
+  color: #475569;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+/* Stack de tecnologías */
+.project-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tech-tag {
+  padding: 0.25rem 0.75rem;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.tech-tag.more {
+  background: #e0e7ff;
+  color: #4f46e5;
+}
+
+/* Acciones del proyecto */
+.project-actions {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn.primary {
+  background: #1e293b;
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #0f172a;
+}
+
+.btn.secondary {
+  background: white;
+  color: #667eea;
+  border: 2px solid #667eea;
+}
+
+.btn.secondary:hover {
+  background: #667eea;
+  color: white;
+}
+
+/* Dropdown de Repositorios - OPCIÓN 1 */
+.repo-dropdown {
+  position: relative;
+  flex: 1;
+}
+
+.btn-repo-toggle {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #1e293b;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-repo-toggle:hover {
+  background: #0f172a;
+}
+
+.btn-repo-toggle .arrow {
+  margin-left: auto;
+  font-size: 0.7rem;
+  transition: transform 0.2s;
+}
+
+.btn-repo-toggle .arrow.open {
+  transform: rotate(180deg);
+}
+
+.repo-list {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  overflow: hidden;
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.repo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: #1e293b;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.repo-link:last-child {
+  border-bottom: none;
+}
+
+.repo-link:hover {
+  background: #f8fafc;
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+  .home-compact {
+    height: auto;
+    min-height: 100vh;
+    overflow: auto; /* Permitimos scroll global en tablet/móvil */
+    padding: 1rem;
+  }
+
+  .home-layout {
+    grid-template-columns: 1fr;
+    height: auto;
+    max-height: none;
+    margin: 1rem 0;
+  }
+
+  .home-sidebar {
+    padding: 2rem 1.5rem;
+  }
+
+  .projects-section {
+    max-height: none;
+    overflow: visible; /* En móvil es mejor que el scroll sea natural de la página */
+  }
+}
+
+@media (max-width: 640px) {
+  .home-compact {
+    padding: 1rem;
+  }
+
+  .home-layout {
+    border-radius: 16px;
+  }
+
+  .social-buttons {
+    flex-direction: column;
+  }
+
+  .project-actions {
+    flex-direction: column;
+  }
+
+  .repo-dropdown {
+    width: 100%;
+  }
 }
