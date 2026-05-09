@@ -1,12 +1,6 @@
 import { Link } from "react-router-dom";
 import { projects } from "../data/projects";
-import { 
-  ExternalLink, 
-  Mail, 
-  FolderGit2, 
-  Github,   
-  Linkedin
-} from "lucide-react";
+import { ExternalLink, Mail, FolderGit2, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import "../styles/home.css";
 
@@ -26,15 +20,16 @@ const Home: React.FC = () => {
             <div className="profile-info">
               <h1>Juan Esteban Meza Buitrago</h1>
               <h2>Ingeniero en Sistemas y Computación</h2>
-              
+
               <p className="bio">
-                Desarrollo de software con enfoque en aplicaciones robustas y 
-                mantenibles. Experiencia en backend, APIs, automatización y 
+                Desarrollo de software con enfoque en aplicaciones robustas y
+                mantenibles. Experiencia en backend, APIs, automatización y
                 proyectos full stack.
               </p>
-              
+
               <p className="bio-secondary">
-                Apasionado por el aprendizaje continuo y las soluciones escalables.
+                Apasionado por el aprendizaje continuo y las soluciones
+                escalables.
               </p>
             </div>
 
@@ -83,7 +78,9 @@ const Home: React.FC = () => {
                   )}
                 </div>
 
-                <p className="project-description">{project.shortDescription}</p>
+                <p className="project-description">
+                  {project.shortDescription}
+                </p>
 
                 <div className="project-stack">
                   {project.stack.slice(0, 4).map((tech) => (
@@ -92,7 +89,9 @@ const Home: React.FC = () => {
                     </span>
                   ))}
                   {project.stack.length > 4 && (
-                    <span className="tech-tag more">+{project.stack.length - 4}</span>
+                    <span className="tech-tag more">
+                      +{project.stack.length - 4}
+                    </span>
                   )}
                 </div>
 
@@ -105,11 +104,13 @@ const Home: React.FC = () => {
                       >
                         <FolderGit2 size={16} />
                         Repositorios ({project.repositories.length})
-                        <span className={`arrow ${expandedRepo === project.slug ? 'open' : ''}`}>
+                        <span
+                          className={`arrow ${expandedRepo === project.slug ? "open" : ""}`}
+                        >
                           ▼
                         </span>
                       </button>
-                      
+
                       {expandedRepo === project.slug && (
                         <div className="repo-list">
                           {project.repositories.map((repo) => (
@@ -127,7 +128,8 @@ const Home: React.FC = () => {
                         </div>
                       )}
                     </div>
-                  ) : (
+                  ) : // Después
+                  project.github ? (
                     <a
                       href={project.github}
                       target="_blank"
@@ -137,7 +139,7 @@ const Home: React.FC = () => {
                       <Github size={16} />
                       GitHub
                     </a>
-                  )}
+                  ) : null}
 
                   <Link
                     to={`/projects/${project.slug}`}
