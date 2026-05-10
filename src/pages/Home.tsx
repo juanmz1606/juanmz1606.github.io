@@ -3,6 +3,8 @@ import { projects } from "../data/projects";
 import { ExternalLink, Mail, FolderGit2, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import "../styles/home.css";
+import TechTag from "../components/TechTag";
+import RepoLinks from "../components/RepoLinks";
 
 const Home: React.FC = () => {
   const [expandedRepo, setExpandedRepo] = useState<string | null>(null);
@@ -72,6 +74,13 @@ const Home: React.FC = () => {
             {projects.map((project) => (
               <article key={project.slug} className="project-card">
                 <div className="project-header">
+                  {project.image && (
+                    <img
+                      src={project.image}
+                      alt={`Captura de ${project.title}`}
+                      className="project-thumbnail"
+                    />
+                  )}
                   <h3>{project.title}</h3>
                   {project.academic && (
                     <span className="academic-badge">Académico</span>
@@ -84,9 +93,7 @@ const Home: React.FC = () => {
 
                 <div className="project-stack">
                   {project.stack.slice(0, 4).map((tech) => (
-                    <span key={tech} className="tech-tag">
-                      {tech}
-                    </span>
+                    <TechTag key={tech} tech={tech} />
                   ))}
                   {project.stack.length > 4 && (
                     <span className="tech-tag more">
@@ -128,18 +135,9 @@ const Home: React.FC = () => {
                         </div>
                       )}
                     </div>
-                  ) : // Después
-                  project.github ? (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="btn primary"
-                    >
-                      <Github size={16} />
-                      GitHub
-                    </a>
-                  ) : null}
+                  ) : (
+                    <RepoLinks project={project} variant="button" />
+                  )}
 
                   <Link
                     to={`/projects/${project.slug}`}

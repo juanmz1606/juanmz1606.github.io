@@ -195,6 +195,36 @@
   border-radius: 10px;
 }
 
+/* Imagen del proyecto */
+.detail-project-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+}
+
+.detail-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.detail-gallery-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.detail-gallery-thumb:hover {
+  opacity: 0.8;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .detail-grid {

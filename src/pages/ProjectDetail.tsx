@@ -10,6 +10,8 @@ import {
   CheckCircle2,
   Code2,
 } from "lucide-react";
+import TechTag from "../components/TechTag";
+import RepoLinks from "../components/RepoLinks";
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams();
@@ -82,15 +84,34 @@ const ProjectDetail: React.FC = () => {
 
             {/* Columna Lateral - Tech Stack y Repos */}
             <aside className="detail-sidebar">
+              {project.image && (
+                <section className="sidebar-block">
+                  <img
+                    src={project.image}
+                    alt={`Captura de ${project.title}`}
+                    className="detail-project-image"
+                  />
+                  {project.gallery && project.gallery.length > 1 && (
+                    <div className="detail-gallery">
+                      {project.gallery.slice(1).map((img, i) => (
+                        <img
+                          key={i}
+                          src={img}
+                          alt={`Captura ${i + 2} de ${project.title}`}
+                          className="detail-gallery-thumb"
+                        />
+                      ))}
+                    </div>
+                  )}
+                </section>
+              )}
               <section className="sidebar-block">
                 <h3>
                   <Code2 size={18} /> Tecnologías
                 </h3>
                 <div className="tech-tags">
                   {project.stack.map((t) => (
-                    <span key={t} className="tech-tag-pill">
-                      {t}
-                    </span>
+                    <TechTag key={t} tech={t} variant="pill" />
                   ))}
                 </div>
               </section>
@@ -101,29 +122,7 @@ const ProjectDetail: React.FC = () => {
                 </h3>
                 <div className="resource-links">
                   {/* Si tiene múltiples repositorios */}
-                  {project.repositories ? (
-                    project.repositories.map((repo) => (
-                      <a
-                        key={repo.url}
-                        href={repo.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="res-link"
-                      >
-                        <Github size={16} /> {repo.name}
-                      </a>
-                    ))
-                  ) : // Después
-                  project.github ? (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="res-link"
-                    >
-                      <Github size={16} /> Repositorio GitHub
-                    </a>
-                  ) : null}
+                  <RepoLinks project={project} variant="links" />
 
                   {/* Documentación */}
                   {project.documentation?.technicalManual && (
