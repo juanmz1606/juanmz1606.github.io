@@ -201,8 +201,8 @@
 }
 
 .project-thumbnail {
-  width: 120px;
-  height: 90px;
+  width: 140px;
+  height: 105px;
   object-fit: cover;
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
