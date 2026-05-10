@@ -59,7 +59,7 @@ export const projects: Project[] = [
       "Docker",
     ],
     github: "https://github.com/juanmz1606/restaurant_project_docker.git",
-    image: "/src/assets/projects/restaurant/hero.png", // el nombre exacto depende de lo que pusiste
+    image: "./src/assets/projects/restaurant/hero.png", // el nombre exacto depende de lo que pusiste
     date: "2026-01",
   },
   {
@@ -84,7 +84,7 @@ export const projects: Project[] = [
       "Pydantic",
     ],
     github: "https://github.com/juanmz1606/granja_befree.git",
-    image: "/src/assets/projects/farm/hero.png",
+    image: "./src/assets/projects/farm/hero.png",
     date: "2025-07",
   },
   {
@@ -142,7 +142,7 @@ export const projects: Project[] = [
       technicalManual: "https://drive.google.com/file/d/1Z7QryuztpJrSaWkDeHG2HE8UYoA6mVX1/view?usp=sharing",
       demoVideo: "https://drive.google.com/file/d/1xoXVXqdpZ-39WiroHRClgJAneiOnseHT/view?usp=sharing",
     },
-    image: "/src/assets/projects/cemetery/hero.png",
+    image: "./src/assets/projects/cemetery/hero.png",
     date: "2025-06",
   },
 ];
