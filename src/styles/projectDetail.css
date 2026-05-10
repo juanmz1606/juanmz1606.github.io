@@ -198,15 +198,16 @@
 /* Imagen del proyecto */
 .detail-project-image {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3; /* Cambia de 16/9 a 4/3 para que sea más alta */
   object-fit: cover;
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-border);
+  cursor: zoom-in;
 }
 
 .detail-gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 0.5rem;
   margin-top: 0.5rem;
 }
@@ -217,7 +218,7 @@
   object-fit: cover;
   border-radius: var(--radius-sm);
   border: 1px solid var(--color-border);
-  cursor: pointer;
+  cursor: zoom-in;
   transition: opacity 0.2s;
 }
 

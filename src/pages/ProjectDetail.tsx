@@ -94,13 +94,13 @@ const ProjectDetail: React.FC = () => {
                     className="detail-project-image"
                     onClick={() => setLightboxImg(project.image!)}
                   />
-                  {project.gallery && project.gallery.length > 1 && (
+                  {project.gallery && project.gallery.length > 0 && (
                     <div className="detail-gallery">
-                      {project.gallery.slice(1).map((img, i) => (
+                      {project.gallery.map((img, i) => (
                         <img
                           key={i}
                           src={img}
-                          alt={`Captura ${i + 2} de ${project.title}`}
+                          alt={`Captura ${i + 1} de ${project.title}`}
                           className="detail-gallery-thumb"
                           onClick={() => setLightboxImg(img)}
                         />
