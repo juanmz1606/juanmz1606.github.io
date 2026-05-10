@@ -12,10 +12,12 @@ import {
 } from "lucide-react";
 import TechTag from "../components/TechTag";
 import RepoLinks from "../components/RepoLinks";
+import { useState } from "react";
 
 const ProjectDetail: React.FC = () => {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
 
   if (!project)
     return (
@@ -90,6 +92,7 @@ const ProjectDetail: React.FC = () => {
                     src={project.image}
                     alt={`Captura de ${project.title}`}
                     className="detail-project-image"
+                    onClick={() => setLightboxImg(project.image!)}
                   />
                   {project.gallery && project.gallery.length > 1 && (
                     <div className="detail-gallery">
@@ -99,6 +102,7 @@ const ProjectDetail: React.FC = () => {
                           src={img}
                           alt={`Captura ${i + 2} de ${project.title}`}
                           className="detail-gallery-thumb"
+                          onClick={() => setLightboxImg(img)}
                         />
                       ))}
                     </div>
@@ -151,6 +155,15 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      {lightboxImg && (
+        <div className="lightbox-overlay" onClick={() => setLightboxImg(null)}>
+          <img
+            src={lightboxImg}
+            alt="Vista ampliada"
+            className="lightbox-img"
+          />
+        </div>
+      )}
     </section>
   );
 };

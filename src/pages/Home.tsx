@@ -73,7 +73,75 @@ const Home: React.FC = () => {
           <div className="projects-list">
             {projects.map((project) => (
               <article key={project.slug} className="project-card">
-                <div className="project-header">
+                <div className="project-card-inner">
+                  <div className="project-card-content">
+                    <div className="project-header">
+                      <h3>{project.title}</h3>
+                      {project.academic && (
+                        <span className="academic-badge">Académico</span>
+                      )}
+                    </div>
+
+                    <p className="project-description">
+                      {project.shortDescription}
+                    </p>
+
+                    <div className="project-stack">
+                      {project.stack.slice(0, 4).map((tech) => (
+                        <TechTag key={tech} tech={tech} />
+                      ))}
+                      {project.stack.length > 4 && (
+                        <span className="tech-tag more">
+                          +{project.stack.length - 4}
+                        </span>
+                      )}
+                    </div>
+                    <div className="project-actions">
+                      {project.repositories ? (
+                        <div className="repo-dropdown">
+                          <button
+                            className="btn-repo-toggle"
+                            onClick={() => toggleRepos(project.slug)}
+                          >
+                            <FolderGit2 size={16} />
+                            Repositorios ({project.repositories.length})
+                            <span
+                              className={`arrow ${expandedRepo === project.slug ? "open" : ""}`}
+                            >
+                              ▼
+                            </span>
+                          </button>
+
+                          {expandedRepo === project.slug && (
+                            <div className="repo-list">
+                              {project.repositories.map((repo) => (
+                                <a
+                                  key={repo.url}
+                                  href={repo.url}
+                                  target="_blank"
+                                  rel="noreferrer"
+                                  className="repo-link"
+                                >
+                                  <Github size={14} />
+                                  {repo.name}
+                                </a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      ) : (
+                        <RepoLinks project={project} variant="button" />
+                      )}
+
+                      <Link
+                        to={`/projects/${project.slug}`}
+                        className="btn secondary"
+                      >
+                        <ExternalLink size={16} />
+                        Ver detalles
+                      </Link>
+                    </div>
+                  </div>
                   {project.image && (
                     <img
                       src={project.image}
@@ -81,71 +149,6 @@ const Home: React.FC = () => {
                       className="project-thumbnail"
                     />
                   )}
-                  <h3>{project.title}</h3>
-                  {project.academic && (
-                    <span className="academic-badge">Académico</span>
-                  )}
-                </div>
-
-                <p className="project-description">
-                  {project.shortDescription}
-                </p>
-
-                <div className="project-stack">
-                  {project.stack.slice(0, 4).map((tech) => (
-                    <TechTag key={tech} tech={tech} />
-                  ))}
-                  {project.stack.length > 4 && (
-                    <span className="tech-tag more">
-                      +{project.stack.length - 4}
-                    </span>
-                  )}
-                </div>
-
-                <div className="project-actions">
-                  {project.repositories ? (
-                    <div className="repo-dropdown">
-                      <button
-                        className="btn-repo-toggle"
-                        onClick={() => toggleRepos(project.slug)}
-                      >
-                        <FolderGit2 size={16} />
-                        Repositorios ({project.repositories.length})
-                        <span
-                          className={`arrow ${expandedRepo === project.slug ? "open" : ""}`}
-                        >
-                          ▼
-                        </span>
-                      </button>
-
-                      {expandedRepo === project.slug && (
-                        <div className="repo-list">
-                          {project.repositories.map((repo) => (
-                            <a
-                              key={repo.url}
-                              href={repo.url}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="repo-link"
-                            >
-                              <Github size={14} />
-                              {repo.name}
-                            </a>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ) : (
-                    <RepoLinks project={project} variant="button" />
-                  )}
-
-                  <Link
-                    to={`/projects/${project.slug}`}
-                    className="btn secondary"
-                  >
-                    <ExternalLink size={16} />
-                    Ver detalles
-                  </Link>
                 </div>
               </article>
             ))}
