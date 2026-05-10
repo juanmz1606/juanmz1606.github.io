@@ -1,4 +1,7 @@
 import restaurantHero from "../assets/projects/restaurant/hero.png";
+import restaurantGallery1 from "../assets/projects/restaurant/ingredientes.png";
+import restaurantGallery2 from "../assets/projects/restaurant/ordenes.png";
+import restaurantGallery3 from "../assets/projects/restaurant/docker.png";
 import farmHero from "../assets/projects/farm/hero.png";
 import cemeteryHero from "../assets/projects/cemetery/hero.png";
 
@@ -64,6 +67,7 @@ export const projects: Project[] = [
     ],
     github: "https://github.com/juanmz1606/restaurant_project_docker.git",
     image: restaurantHero,
+    gallery: [restaurantGallery1, restaurantGallery2, restaurantGallery3],
     date: "2026-01",
   },
   {
