@@ -4,7 +4,6 @@ import { ExternalLink, Mail, FolderGit2, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 import "../styles/home.css";
 import TechTag from "../components/TechTag";
-import RepoLinks from "../components/RepoLinks";
 
 const Home: React.FC = () => {
   const [expandedRepo, setExpandedRepo] = useState<string | null>(null);
@@ -96,7 +95,9 @@ const Home: React.FC = () => {
                         </span>
                       )}
                     </div>
+
                     <div className="project-actions">
+                      {/* Repositorios — dropdown si hay varios */}
                       {project.repositories ? (
                         <div className="repo-dropdown">
                           <button
@@ -129,10 +130,33 @@ const Home: React.FC = () => {
                             </div>
                           )}
                         </div>
-                      ) : (
-                        <RepoLinks project={project} variant="button" />
+                      ) : project.github ? (
+                        /* GitHub único */
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="btn primary"
+                        >
+                          <Github size={16} />
+                          GitHub
+                        </a>
+                      ) : null}
+
+                      {/* Sitio en vivo */}
+                      {project.url && (
+                        <a
+                          href={project.url}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="btn live"
+                        >
+                          <ExternalLink size={16} />
+                          Ver sitio
+                        </a>
                       )}
 
+                      {/* Detalles */}
                       <Link
                         to={`/projects/${project.slug}`}
                         className="btn secondary"
@@ -142,6 +166,7 @@ const Home: React.FC = () => {
                       </Link>
                     </div>
                   </div>
+
                   {project.image && (
                     <img
                       src={project.image}

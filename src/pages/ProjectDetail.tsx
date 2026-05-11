@@ -9,6 +9,7 @@ import {
   Layers,
   CheckCircle2,
   Code2,
+  ExternalLink,
 } from "lucide-react";
 import TechTag from "../components/TechTag";
 import RepoLinks from "../components/RepoLinks";
@@ -109,6 +110,7 @@ const ProjectDetail: React.FC = () => {
                   )}
                 </section>
               )}
+
               <section className="sidebar-block">
                 <h3>
                   <Code2 size={18} /> Tecnologías
@@ -125,10 +127,19 @@ const ProjectDetail: React.FC = () => {
                   <Github size={18} /> Recursos y Código
                 </h3>
                 <div className="resource-links">
-                  {/* Si tiene múltiples repositorios */}
                   <RepoLinks project={project} variant="links" />
 
-                  {/* Documentación */}
+                  {project.url && (
+                    <a
+                      href={project.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="res-link live"
+                    >
+                      <ExternalLink size={16} /> Ver sitio en vivo
+                    </a>
+                  )}
+
                   {project.documentation?.technicalManual && (
                     <a
                       href={project.documentation.technicalManual}
@@ -139,6 +150,7 @@ const ProjectDetail: React.FC = () => {
                       <BookOpen size={16} /> Manual Técnico
                     </a>
                   )}
+
                   {project.documentation?.demoVideo && (
                     <a
                       href={project.documentation.demoVideo}
@@ -155,6 +167,8 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Lightbox */}
       {lightboxImg && (
         <div className="lightbox-overlay" onClick={() => setLightboxImg(null)}>
           <img

@@ -253,6 +253,13 @@
   border-radius: var(--radius-md);
 }
 
+.res-link.live {
+  background: #16a34a;
+}
+.res-link.live:hover {
+  background: #15803d;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -2,7 +2,10 @@ import restaurantHero from "../assets/projects/restaurant/hero.png";
 import restaurantGallery1 from "../assets/projects/restaurant/ingredientes.png";
 import restaurantGallery2 from "../assets/projects/restaurant/ordenes.png";
 import restaurantGallery3 from "../assets/projects/restaurant/docker.png";
-import farmHero from "../assets/projects/farm/hero.png";
+import rafflesHero from "../assets/projects/raffles/hero.png";
+import rafflesGallery1 from "../assets/projects/raffles/inicio.png";
+import rafflesGallery2 from "../assets/projects/raffles/privado.png";
+import rafflesGallery3 from "../assets/projects/raffles/publica.png";
 import cemeteryHero from "../assets/projects/cemetery/hero.png";
 import cemetery1 from "../assets/projects/cemetery/cuerpos.png";
 import cemetery2 from "../assets/projects/cemetery/distribucion.png";
@@ -36,6 +39,7 @@ export interface Project {
   image?: string;
   gallery?: string[];
   date?: string;
+  url?: string;
 }
 
 export const projects: Project[] = [
@@ -75,29 +79,41 @@ export const projects: Project[] = [
     date: "2026-01",
   },
   {
-    slug: "farm-management-api",
-    title: "Sistema de Gestión de Granja",
+    slug: "rifas-echeverry",
+    title: "Rifas Echeverry Distribuidora",
+    role: "Desarrollador Full Stack",
     shortDescription:
-      "API backend para gestionar animales, corrales y registrar un histórico de movimientos.",
-    description: `Proyecto técnico desarrollado como parte de un proceso de selección, orientado a la construcción de una API backend para la gestión básica de una granja. El sistema permite administrar animales y corrales, así como registrar un histórico de movimientos para auditar las operaciones realizadas. Se implementó una arquitectura modular con separación de responsabilidades y persistencia de datos mediante ORM.`,
+      "Plataforma completa de rifas con panel de administración, gestión de tickets y flujo de reserva pública integrado con WhatsApp.",
+    description: `Sistema full stack desarrollado para Echeverry Distribuidora, permitiendo gestionar rifas, tickets y clientes desde un panel de administración, mientras los clientes pueden reservar números públicamente desde la web. El backend expone una API REST con autenticación JWT, subida de imágenes a Cloudinary y registro de auditoría completo. El frontend público incluye carrusel de rifas destacadas, countdown al sorteo y una grilla interactiva de tickets con actualización automática cada 30 segundos.`,
+    architecture:
+      "Arquitectura cliente-servidor desacoplada. Backend en Railway expone una API REST con NestJS. Frontend en Vercel consume la API mediante Axios con interceptor JWT. Base de datos PostgreSQL en Supabase con ORM Prisma. Imágenes gestionadas en Cloudinary.",
     features: [
-      "CRUD de animales",
-      "CRUD de corrales",
-      "Registro de movimientos para auditoría",
-      "Persistencia de datos con SQLite",
-      "Arquitectura modular con FastAPI",
-      "Documentación automática con Swagger",
+      "Grilla interactiva de selección de tickets con polling cada 30 segundos",
+      "Flujo de reserva pública con apertura automática de WhatsApp",
+      "Panel de administración con gestión completa de rifas, tickets y clientes",
+      "Carrusel de rifas destacadas y countdown al sorteo",
+      "Subida y gestión de imágenes por rifa via Cloudinary",
+      "Historial de auditoría con estado antes/después de cada cambio",
+      "Autenticación JWT con interceptor automático en el cliente",
+      "Configuración 3 o 4 cifras por rifa, slugs autogenerados",
     ],
     stack: [
-      "Python",
-      "FastAPI",
-      "SQLAlchemy",
-      "SQLite",
-      "Pydantic",
+      "Next.js",
+      "TypeScript",
+      "NestJS",
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "Cloudinary",
+      "JWT",
+      "TailwindCSS",
+      "Vercel",
+      "Railway",
     ],
-    github: "https://github.com/juanmz1606/granja_befree.git",
-    image: farmHero,
-    date: "2025-07",
+    url: "https://rifasecheverry.com",
+    image: rafflesHero,
+    gallery: [rafflesGallery1, rafflesGallery2, rafflesGallery3],
+    date: "2026-04",
   },
   {
     slug: "cemetery-management",
