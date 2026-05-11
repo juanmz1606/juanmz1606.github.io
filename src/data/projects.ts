@@ -4,6 +4,10 @@ import restaurantGallery2 from "../assets/projects/restaurant/ordenes.png";
 import restaurantGallery3 from "../assets/projects/restaurant/docker.png";
 import farmHero from "../assets/projects/farm/hero.png";
 import cemeteryHero from "../assets/projects/cemetery/hero.png";
+import cemetery1 from "../assets/projects/cemetery/cuerpos.png";
+import cemetery2 from "../assets/projects/cemetery/distribucion.png";
+import cemetery3 from "../assets/projects/cemetery/eventos-cuerpo.png";
+import cemetery4 from "../assets/projects/cemetery/reporte.png";
 
 interface Repository {
   name: string;
@@ -152,5 +156,6 @@ export const projects: Project[] = [
     },
     image: cemeteryHero,
     date: "2025-06",
+    gallery: [cemetery1, cemetery2, cemetery3, cemetery4],
   },
 ];
