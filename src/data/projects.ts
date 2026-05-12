@@ -44,41 +44,6 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "restaurant-management",
-    title: "Restaurant Management System",
-    role: "Desarrollador Full Stack · Proyecto académico individual",
-    shortDescription:
-      "Sistema de gestión para restaurantes con control de stock, recetas, empleados y órdenes.",
-    description: `Proyecto académico full stack desarrollado para administrar un restaurante, permitiendo gestionar ingredientes, recetas, empleados y órdenes. Incluye lógica de negocio en backend para validación y descuento automático de stock al crear órdenes.`,
-    features: [
-      "CRUD de ingredientes con control de stock",
-      "Recetas con múltiples ingredientes y cantidades",
-      "Órdenes asociadas a empleados",
-      "Descuento automático de stock al crear órdenes",
-      "Validación de stock antes de guardar órdenes",
-      "Uso de transacciones en MongoDB",
-    ],
-    learnings: [
-      "Diseño de lógica de negocio real",
-      "Relaciones entre colecciones en MongoDB",
-      "Uso de Mongoose con NestJS",
-      "Manejo de entornos con Docker",
-    ],
-    stack: [
-      "NestJS",
-      "MongoDB",
-      "Mongoose",
-      "React",
-      "Vite",
-      "Tailwind CSS",
-      "Docker",
-    ],
-    github: "https://github.com/juanmz1606/restaurant_project_docker.git",
-    image: restaurantHero,
-    gallery: [restaurantGallery1, restaurantGallery2, restaurantGallery3],
-    date: "2026-01",
-  },
-  {
     slug: "rifas-echeverry",
     title: "Rifas Echeverry Distribuidora",
     role: "Desarrollador Full Stack · Freelance para Echeverry Distribuidora",
@@ -174,5 +139,41 @@ export const projects: Project[] = [
     image: cemeteryHero,
     date: "2025-06",
     gallery: [cemetery1, cemetery2, cemetery3, cemetery4],
+  },
+    {
+    slug: "restaurant-management",
+    title: "Restaurant Management System",
+    role: "Desarrollador Full Stack · Proyecto académico individual",
+    academic: true,
+    shortDescription:
+      "Sistema de gestión para restaurantes con control de stock, recetas, empleados y órdenes.",
+    description: `Proyecto académico full stack desarrollado para administrar un restaurante, permitiendo gestionar ingredientes, recetas, empleados y órdenes. Incluye lógica de negocio en backend para validación y descuento automático de stock al crear órdenes.`,
+    features: [
+      "CRUD de ingredientes con control de stock",
+      "Recetas con múltiples ingredientes y cantidades",
+      "Órdenes asociadas a empleados",
+      "Descuento automático de stock al crear órdenes",
+      "Validación de stock antes de guardar órdenes",
+      "Uso de transacciones en MongoDB",
+    ],
+    learnings: [
+      "Diseño de lógica de negocio real",
+      "Relaciones entre colecciones en MongoDB",
+      "Uso de Mongoose con NestJS",
+      "Manejo de entornos con Docker",
+    ],
+    stack: [
+      "NestJS",
+      "MongoDB",
+      "Mongoose",
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Docker",
+    ],
+    github: "https://github.com/juanmz1606/restaurant_project_docker.git",
+    image: restaurantHero,
+    gallery: [restaurantGallery1, restaurantGallery2, restaurantGallery3],
+    date: "2026-01",
   },
 ];
