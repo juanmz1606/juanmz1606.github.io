@@ -46,7 +46,7 @@ export const projects: Project[] = [
   {
     slug: "restaurant-management",
     title: "Restaurant Management System",
-    role: "Desarrollador Full Stack",
+    role: "Desarrollador Full Stack · Proyecto académico individual",
     shortDescription:
       "Sistema de gestión para restaurantes con control de stock, recetas, empleados y órdenes.",
     description: `Proyecto académico full stack desarrollado para administrar un restaurante, permitiendo gestionar ingredientes, recetas, empleados y órdenes. Incluye lógica de negocio en backend para validación y descuento automático de stock al crear órdenes.`,
@@ -81,7 +81,7 @@ export const projects: Project[] = [
   {
     slug: "rifas-echeverry",
     title: "Rifas Echeverry Distribuidora",
-    role: "Desarrollador Full Stack",
+    role: "Desarrollador Full Stack · Freelance para Echeverry Distribuidora",
     shortDescription:
       "Plataforma completa de rifas con panel de administración, gestión de tickets y flujo de reserva pública integrado con WhatsApp.",
     description: `Sistema full stack desarrollado para Echeverry Distribuidora, permitiendo gestionar rifas, tickets y clientes desde un panel de administración, mientras los clientes pueden reservar números públicamente desde la web. El backend expone una API REST con autenticación JWT, subida de imágenes a Cloudinary y registro de auditoría completo. El frontend público incluye carrusel de rifas destacadas, countdown al sorteo y una grilla interactiva de tickets con actualización automática cada 30 segundos.`,
@@ -118,6 +118,7 @@ export const projects: Project[] = [
   {
     slug: "cemetery-management",
     title: "Sistema de Gestión Integral de Cementerios",
+    role: "Desarrollador Backend · Proyecto académico en equipo",
     academic: true,
 
     shortDescription:
