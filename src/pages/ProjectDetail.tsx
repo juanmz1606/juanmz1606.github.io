@@ -19,6 +19,7 @@ const ProjectDetail: React.FC = () => {
   const { slug } = useParams();
   const project = projects.find((p) => p.slug === slug);
   const [lightboxImg, setLightboxImg] = useState<string | null>(null);
+  const [activeImg, setActiveImg] = useState(0);
 
   if (!project)
     return (
@@ -89,25 +90,68 @@ const ProjectDetail: React.FC = () => {
             <aside className="detail-sidebar">
               {project.image && (
                 <section className="sidebar-block">
-                  <img
-                    src={project.image}
-                    alt={`Captura de ${project.title}`}
-                    className="detail-project-image"
-                    onClick={() => setLightboxImg(project.image!)}
-                  />
-                  {project.gallery && project.gallery.length > 0 && (
-                    <div className="detail-gallery">
-                      {project.gallery.map((img, i) => (
-                        <img
-                          key={i}
-                          src={img}
-                          alt={`Captura ${i + 1} de ${project.title}`}
-                          className="detail-gallery-thumb"
-                          onClick={() => setLightboxImg(img)}
-                        />
-                      ))}
-                    </div>
-                  )}
+                  <div className="image-carousel">
+                    <img
+                      src={
+                        [project.image, ...(project.gallery ?? [])][activeImg]
+                      }
+                      alt={`Captura ${activeImg + 1} de ${project.title}`}
+                      className="carousel-main"
+                      onClick={() =>
+                        setLightboxImg(
+                          [project.image!, ...(project.gallery ?? [])][
+                            activeImg
+                          ],
+                        )
+                      }
+                    />
+                    {(project.gallery ?? []).length > 0 && (
+                      <>
+                        <div className="carousel-controls">
+                          <button
+                            className="carousel-btn"
+                            onClick={() =>
+                              setActiveImg((i) => Math.max(0, i - 1))
+                            }
+                            disabled={activeImg === 0}
+                          >
+                            ‹
+                          </button>
+                          <span className="carousel-counter">
+                            {activeImg + 1} /{" "}
+                            {1 + (project.gallery?.length ?? 0)}
+                          </span>
+                          <button
+                            className="carousel-btn"
+                            onClick={() =>
+                              setActiveImg((i) =>
+                                Math.min(i + 1, project.gallery?.length ?? 0),
+                              )
+                            }
+                            disabled={
+                              activeImg === (project.gallery?.length ?? 0)
+                            }
+                          >
+                            ›
+                          </button>
+                        </div>
+
+                        <div className="carousel-thumbs">
+                          {[project.image, ...(project.gallery ?? [])].map(
+                            (img, i) => (
+                              <img
+                                key={i}
+                                src={img}
+                                alt={`Miniatura ${i + 1}`}
+                                className={`carousel-thumb ${activeImg === i ? "active" : ""}`}
+                                onClick={() => setActiveImg(i)}
+                              />
+                            ),
+                          )}
+                        </div>
+                      </>
+                    )}
+                  </div>
                 </section>
               )}
 
