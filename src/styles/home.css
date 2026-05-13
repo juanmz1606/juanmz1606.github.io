@@ -13,13 +13,16 @@
 }
 
 .home-layout {
-  height: auto; /* Quitar altura fija cuando sea posible */
-  min-height: var(--container-height); /* Mantener el comportamiento deseado */
-  max-height: var(--container-max-home);
-  overflow: hidden;
+  max-width: 1200px;
+  width: 100%;
+  background: var(--color-surface);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
   display: grid;
   grid-template-columns: 380px 1fr;
-  align-content: start; /* Importante */
+  height: var(--container-height);
+  max-height: var(--container-max-home);
+  overflow: hidden;
 }
 
 /* Sidebar - Info Personal */
@@ -128,9 +131,8 @@
 .projects-section {
   padding: 2.5rem;
   overflow-y: auto;
-  height: 100%; /* Mantener */
-  display: flex;
-  flex-direction: column;
+  height: 100%;
+  background-color: var(--color-surface);
 }
 
 /* Scrollbar */
@@ -160,7 +162,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  flex: 1; /* Permite crecer */
 }
 
 /* Cards de Proyectos */
@@ -202,11 +203,6 @@
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
   flex-shrink: 0;
-
-  /* FIX CLAVE */
-  max-height: 180px; /* Limita la altura máxima */
-  height: auto; /* Importante */
-  min-width: 160px; /* Evita que se haga muy pequeña */
 }
 
 .academic-badge {
@@ -404,11 +400,6 @@
     max-height: none;
     overflow: visible;
   }
-
-  .project-thumbnail {
-    width: 40%;
-    max-height: 160px;
-  }
 }
 
 @media (max-width: 640px) {
@@ -427,14 +418,5 @@
   }
   .repo-dropdown {
     width: 100%;
-  }
-
-  .project-card-inner {
-    flex-direction: column; /* En móvil mejor vertical */
-  }
-
-  .project-thumbnail {
-    width: 100%;
-    max-height: 200px;
   }
 }
