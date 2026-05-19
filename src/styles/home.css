@@ -406,6 +406,7 @@
   .home-compact {
     padding: 1rem;
   }
+
   .home-layout {
     border-radius: 16px;
   }
@@ -413,10 +414,24 @@
   .social-buttons {
     flex-direction: column;
   }
+
   .project-actions {
     flex-direction: column;
   }
+
   .repo-dropdown {
     width: 100%;
+  }
+
+  /* Imagen arriba, contenido abajo en móvil */
+  .project-card-inner {
+    flex-direction: column;
+  }
+
+  .project-thumbnail {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
   }
 }
